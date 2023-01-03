@@ -32,7 +32,7 @@ class Program
 
         static string PromptUserName()
         {
-            Console.WriteLine("Enter your name: ");
+            Console.Write("Enter your name: ");
             string name = Console.ReadLine();
 
             return name;
@@ -40,7 +40,7 @@ class Program
 
         static int PromptUserNumber()
         {
-            Console.WriteLine("Enter your favorite number: ");
+            Console.Write("Enter your favorite number: ");
             int num = int.Parse(Console.ReadLine());
 
             return num;
