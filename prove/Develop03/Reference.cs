@@ -2,17 +2,17 @@ using System;
 
 class Reference
 {
-    private string book, chapter, verse;
+    private string _book, _chapter, _verse;
 
-    public Reference (string _book, string _chapter, string _verse)
+    public Reference (string book, string chapter, string verse)
     {
-        book = _book;
-        chapter  = _chapter;
-        verse = _verse;
+        _book = book;
+        _chapter  = chapter;
+        _verse = verse;
     }
 
     public string toString()
     {
-        return string.Format("{0} {1}:{2}", book, chapter, verse);
+        return string.Format("{0} {1}:{2}", _book, _chapter, _verse);
     }
 }

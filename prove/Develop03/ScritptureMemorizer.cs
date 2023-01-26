@@ -2,19 +2,19 @@ using System;
 
 class ScriptureMemorizer
 {
-    private Scripture scripture;
-    private List<string> scriptureTextList;
+    private Scripture _scripture;
+    private List<string> _scriptureTextList;
 
-    public ScriptureMemorizer(Scripture _scripture)
+    public ScriptureMemorizer(Scripture scripture)
     {
-        scripture = _scripture;
-        scriptureTextList = new List<string>();
+        _scripture = scripture;
+        _scriptureTextList = new List<string>();
         convertTextToList();
     }
 
     private void convertTextToList()
     {
-        scriptureTextList = scripture.toString().Split(" ").ToList();
+        _scriptureTextList = _scripture.toString().Split(" ").ToList();
     }
 
     public void removeWordsFromText()
@@ -25,34 +25,34 @@ class ScriptureMemorizer
 
         do
         {
-            int rndIndex = new Random().Next(0, scriptureTextList.Count());
-            if (scriptureTextList[rndIndex].Contains('_') == false)
+            int rndIndex = new Random().Next(0, _scriptureTextList.Count());
+            if (_scriptureTextList[rndIndex].Contains('_') == false)
             {
-                scriptureTextList[rndIndex] = new string('_', scriptureTextList[rndIndex].Length);
+                _scriptureTextList[rndIndex] = new string('_', _scriptureTextList[rndIndex].Length);
                 wordsRemoved++;
                 totalWordsRemoved++;
 
-                if (scriptureTextList.Count()-totalWordsRemoved == 1)
+                if (_scriptureTextList.Count()-totalWordsRemoved == 1)
                 {
-                    scriptureTextList[rndIndex] = new string('_', scriptureTextList[rndIndex].Length);
+                    _scriptureTextList[rndIndex] = new string('_', _scriptureTextList[rndIndex].Length);
                     wordsRemoved++;
                     totalWordsRemoved++;
                     wordsRemoved = numWordsToRemove; 
                 }
             }
-        }while (wordsRemoved != numWordsToRemove && totalWordsRemoved != scriptureTextList.Count());
+        }while (wordsRemoved != numWordsToRemove && totalWordsRemoved != _scriptureTextList.Count());
     }
 
     public string toString()
     {
-        return string.Join(" ", scriptureTextList);
+        return string.Join(" ", _scriptureTextList);
     }
 
     public bool hasWordsLeft()
     {
         bool retValue = false;
 
-        foreach (string word in scriptureTextList)
+        foreach (string word in _scriptureTextList)
         {
             if (word.Contains("_") == false)
             {

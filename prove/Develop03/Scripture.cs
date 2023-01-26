@@ -2,17 +2,17 @@ using System;
 
 class Scripture
 {
-    private string scriptureText;
-    private Reference scriptureReference;
+    private string _scriptureText;
+    private Reference _scriptureReference;
 
-    public Scripture (Reference _scriptureReference, string _scriptureText)
+    public Scripture (Reference scriptureReference, string scriptureText)
     {
-        scriptureReference = _scriptureReference;
-        scriptureText = _scriptureText;
+        _scriptureReference = scriptureReference;
+        _scriptureText = scriptureText;
     }
 
     public string toString()
     {
-        return string.Format("{0}", scriptureText);
+        return string.Format("{0}", _scriptureText);
     }
 }
