@@ -4,6 +4,7 @@ class ScriptureMemorizer
 {
     private Scripture _scripture;
     private List<string> _scriptureTextList;
+    private int _totalWordsRemoved = 0;
 
     public ScriptureMemorizer(Scripture scripture)
     {
@@ -19,9 +20,8 @@ class ScriptureMemorizer
 
     public void removeWordsFromText()
     {
-        int numWordsToRemove = new Random().Next(3,4);
+        int numWordsToRemove = 3;
         int wordsRemoved = 0;
-        int totalWordsRemoved = 0;
 
         do
         {
@@ -30,9 +30,15 @@ class ScriptureMemorizer
             {
                 _scriptureTextList[rndIndex] = new string('_', _scriptureTextList[rndIndex].Length);
                 wordsRemoved++;
-                totalWordsRemoved++;
+                _totalWordsRemoved++;
+
+                if ((_scriptureTextList.Count() - numWordsToRemove) <= _totalWordsRemoved && _totalWordsRemoved < (_scriptureTextList.Count() + 1))
+                {
+                    wordsRemoved = 3;
+                }
             }
-        }while (wordsRemoved != numWordsToRemove);
+
+        } while (wordsRemoved != numWordsToRemove);
     }
 
     public string toString()

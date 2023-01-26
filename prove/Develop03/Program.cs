@@ -19,5 +19,10 @@ class Program
             userInput = Console.ReadLine();
             scriptureMemorizer.removeWordsFromText();
         }
+        //one more time outside of while loop since program ends with one word left
+        Console.Clear();
+        Console.WriteLine(string.Format("{0} {1}", scriptureReference.toString(), scriptureMemorizer.toString()));
+        Console.WriteLine();
+        Console.WriteLine("Good job!");
     }
 }
