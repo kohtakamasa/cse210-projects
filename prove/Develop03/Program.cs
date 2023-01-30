@@ -1,6 +1,7 @@
 
 using System;
 
+//As a stretch challenge, I tried to randomly select from only those words that are not already hidden.
 class Program
 {
     static void Main(string[] args)
